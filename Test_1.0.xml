@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<movies>
+    <movie>
+        <id>1</id>
+        <name>Shrek</name>
+        <coordinates>
+            <coordinate_x>256</coordinate_x>
+            <coordinate_y>200</coordinate_y>
+        </coordinates>
+        <creationDate>11:09:2004</creationDate>
+        <oscarsCount>12</oscarsCount>
+        <genre>DRAMA</genre>
+        <mpaaRating>PG</mpaaRating>
+        <director>
+            <name>Mihail</name>
+            <weight>200</weight>
+            <eyecolor>GREEN</eyecolor>
+            <nationality>RUSSIA</nationality>
+            <location>
+                <loc_x>652</loc_x>
+                <loc_y>235</loc_y>
+                <name>Mej bulochnay shel</name>
+            </location>
+        </director>
+    </movie>
+    <movie>
+        <id>2</id>
+        <name>Potter</name>
+        <coordinates>
+            <coordinate_x>256</coordinate_x>
+            <coordinate_y>200</coordinate_y>
+        </coordinates>
+        <creationDate>01:11:2019</creationDate>
+        <oscarsCount>9</oscarsCount>
+        <genre>WESTERN</genre>
+        <mpaaRating>G</mpaaRating>
+        <director>
+            <name>Maks</name>
+            <weight>135</weight>
+            <eyecolor>RED</eyecolor>
+            <nationality>RUSSIA</nationality>
+            <location>
+                <loc_x>652</loc_x>
+                <loc_y>235</loc_y>
+                <name>Tvoi gorod</name>
+            </location>
+        </director>
+    </movie>
+    <movie>
+        <id>3</id>
+        <name>Shell</name>
+        <coordinates>
+            <coordinate_x>56</coordinate_x>
+            <coordinate_y>100</coordinate_y>
+        </coordinates>
+        <creationDate>01:01:2014</creationDate>
+        <oscarsCount>1</oscarsCount>
+        <genre>TRAGEDY</genre>
+        <mpaaRating>PG_13</mpaaRating>
+        <director>
+            <name>Karl</name>
+            <weight>175</weight>
+            <eyecolor>BLUE</eyecolor>
+            <nationality>GERMANY</nationality>
+            <location>
+                <loc_x>62</loc_x>
+                <loc_y>2</loc_y>
+                <name>Pod Stolom</name>
+            </location>
+        </director>
+    </movie>
+</movies>
