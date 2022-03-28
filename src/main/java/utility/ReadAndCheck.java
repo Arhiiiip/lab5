@@ -5,6 +5,7 @@ import Data.Country;
 import Data.MovieGenre;
 import Data.MpaaRating;
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class ReadAndCheck {
@@ -124,15 +125,16 @@ public class ReadAndCheck {
         }
     }
 
-    public long readAndCheckId() {
+    //TODO Убрать эту проверку с ID
+    public long creatAndCheckId(HashSet collection) {
         System.out.println("Введите айди, а нет идите нахуй, айди сам вводится.");
-        String line = scanner.nextLine();
-        if (line == null || line.equals("null") || !(Long.parseLong(line) > 0)) throw new NullPointerException();
-        try {
-            return Long.parseLong(line);
-        } catch (NumberFormatException exception) {
-            throw new NumberFormatException();
+        for (long i = 0, id = 1; i < (collection.size() + 1); i++, id++) {
+            if (!collection.contains(id)) {
+                collection.add(id);
+                return id;
+            }
         }
+        return 0;
     }
 
     public Integer readAndCheckOscarsCount() {

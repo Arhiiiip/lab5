@@ -7,6 +7,7 @@ import utility.MovieFactory;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 
@@ -18,12 +19,14 @@ public class Main {
         String link = args[0];
         FileWorker fileWorker = new FileWorker();
         LinkedHashSet<Movie> collectionForWork = fileWorker.parse(link);
+        HashSet hashSetId = fileWorker.takeHashSetId();
         System.out.println(scanner);
         String commandUser = scanner.nextLine();
-        MovieFactory movieFactory = new MovieFactory(scanner);
+        MovieFactory movieFactory = new MovieFactory(scanner, hashSetId);
         Receiver receiver = new Receiver();
         Invoker invoker = new Invoker(collectionForWork, receiver, movieFactory);
-        invoker.execute(commandUser, collectionForWork);
+        String arg = scanner.nextLine();
+        invoker.execute(commandUser,arg, collectionForWork);
         System.out.println(collectionForWork);
     }
 

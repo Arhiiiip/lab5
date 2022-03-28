@@ -1,5 +1,7 @@
 package Command;
 
+import Data.Movie;
+
 import java.util.LinkedHashSet;
 
 public class Receiver {
@@ -7,7 +9,7 @@ public class Receiver {
     public Receiver(){
     }
 
-    public void execute(CommandAbstract command, LinkedHashSet collectionForWork){
-        command.execute(collectionForWork);
+    public void execute(CommandAbstract command,String arg,  LinkedHashSet<Movie> collectionForWork){
+        command.execute(arg, collectionForWork);
     }
 }

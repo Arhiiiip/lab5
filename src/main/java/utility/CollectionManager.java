@@ -31,7 +31,7 @@ public class CollectionManager implements CollectionManagerInterface {
 
     @Override
     public void add(Movie movie) {
-        System.out.println("add");
+        System.out.println("Добавили элемент коллекцию");
         moviesLinckedHashSet.add(movie);
         assert moviesLinckedHashSet.size() == 0;
     }

@@ -15,9 +15,8 @@ public class AddCommand extends CommandAbstract{
     }
 
     @Override
-    public void execute(LinkedHashSet collectionForWork) {
+    public void execute(String arg, LinkedHashSet<Movie> collectionForWork) {
         Movie movie = movieFactory.GetMovieFromConsole();
-        //TODO не спршивает что записывать
         collectionForWork.add(movie);
     }
 }

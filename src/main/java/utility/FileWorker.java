@@ -13,9 +13,12 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.time.format.DateTimeParseException;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 
 public class FileWorker {
+    HashSet hashSetId = new HashSet();
+
     public LinkedHashSet parse(String link) throws IOException, SAXException, ParserConfigurationException {
 
         CreateFileForWork fileForWork = new CreateFileForWork();
@@ -142,10 +145,15 @@ public class FileWorker {
                 collectionFromFile.add(new Movie(tempId, tempMovieName, new Coordinates(tempCoordinatesX, tempCoordinatesY), tempCreationDate,
                         tempOscarsCount, tempGenre, tempMpaaRating, new Person(tempPersonName, tempWeight,
                         tempEyeColor, tempNationality, new Location(tempLocationX, tempLocationY, tempLocationName))));
+
+                hashSetId.add(tempId);
             }
         }
         System.out.println(collectionFromFile);
     return collectionFromFile;
+    }
+    public HashSet takeHashSetId(){
+        return hashSetId;
     }
 }
 

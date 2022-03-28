@@ -1,5 +1,9 @@
 package Command;
 
+import Data.Movie;
+
+import java.util.LinkedHashSet;
+
 public class ClearCommand extends CommandAbstract{
 
 
@@ -7,7 +11,7 @@ public class ClearCommand extends CommandAbstract{
         super(name, description);
     }
 
-    public void execute(String arg) {
-
+    public void execute(String arg, LinkedHashSet<Movie> collectionForWork) {
+        collectionForWork.clear();
     }
 }

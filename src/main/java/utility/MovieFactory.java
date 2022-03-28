@@ -4,15 +4,18 @@ package utility;
 import Data.*;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class MovieFactory {
         private final Scanner scanner;
         private Long id;
         private Object loadObject;
+        HashSet hashSetId;
         private boolean boolWF;
 
-        public MovieFactory(Scanner scanner) {
+        public MovieFactory(Scanner scanner, HashSet hashSetId) {
+            this.hashSetId = hashSetId;
             this.scanner = scanner;
         }
 
@@ -50,11 +53,12 @@ public class MovieFactory {
         String locationName;
 
         ReadAndCheck readAndCheck = new ReadAndCheck(scanner, boolWF);
-        id = readAndCheck.readAndCheckId();
+        id = readAndCheck.creatAndCheckId(hashSetId);
         movieName = readAndCheck.readAndCheckName();
         coordinatesX = readAndCheck.readAndCheckCordinateX();
         coordinatesY = readAndCheck.readAndCheckCordinateY();
         coordinates = new Coordinates(coordinatesX, coordinatesY);
+        //TODO Сделать date автоматическим
         LocalDateTime creationDate = null;
         oscarsCount = readAndCheck.readAndCheckOscarsCount();
         genre = readAndCheck.readAndCheckMovieGenre();
