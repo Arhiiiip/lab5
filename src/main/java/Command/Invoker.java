@@ -25,7 +25,8 @@ private Receiver receiver;
         commands.put("average_of_oscars_count", new AverageOfOscarsCommand("average_of_oscars_count", "Вывести среднее значение поля oscarsCount для всех элементов коллекции"));
         commands.put("remove_by_id", new RemoveByIdCommand("remove_by_id", "Удалить элемент из коллекции по его id", movieFactory));
         commands.put("remove_lower", new RemoveLowerCommand("remove_lower {element}", "Удалить из коллекции все элементы, меньшие, чем заданный"));
-
+        commands.put("add_if_max", new AddIfMaxCommand("add_if_max {element}", "Добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции", movieFactory));
+        commands.put("add_if_min", new AddIfMinCommand("add_if_min {element}", "Добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции", movieFactory));
     }
 
     public void execute(String name,String arg,  LinkedHashSet collectionFotWork){
