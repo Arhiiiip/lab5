@@ -1,13 +1,32 @@
 package Command;
 
-public class UpdateIdCommand extends CommandAbstract{
+import Data.Movie;
+import utility.MovieFactory;
 
-    public UpdateIdCommand(String name, String description) {
+public class UpdateIdCommand extends CommandAbstract{
+    MovieFactory movieFactory;
+
+    public UpdateIdCommand(String name, String description, MovieFactory movieFactory) {
         super(name, description);
+        this.movieFactory = movieFactory;
     }
 //TODO update id
     public void execute(String arg) {
-        System.out.println("update id");
+        Movie movieForChange = movieFactory.GetMovieFromConsole();
+        long idFromUser = Long.parseLong(arg);
+        boolean isId = false;
+        for (Movie movie : movieFactory.getCollectionForWork()){
+            if (movie.getId() == idFromUser){
+                movieFactory.getCollectionForWork().remove(movie);
+                isId = true;
+                break;
+            }
+        }
+        if(!isId){
+            System.out.println("Такого id нет");
+        }else {
+            movieForChange.setId(idFromUser);
+            movieFactory.getCollectionForWork().add(movieForChange);
+        }
     }
-
 }

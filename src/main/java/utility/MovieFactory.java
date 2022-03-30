@@ -5,6 +5,7 @@ import Data.*;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
 
 public class MovieFactory {
@@ -13,10 +14,12 @@ public class MovieFactory {
         private Object loadObject;
         HashSet hashSetId;
         private boolean boolWF;
+        LinkedHashSet<Movie> collectionForWork;
 
-        public MovieFactory(Scanner scanner, HashSet hashSetId) {
+        public MovieFactory(Scanner scanner, HashSet hashSetId, LinkedHashSet<Movie> collectionForWork) {
             this.hashSetId = hashSetId;
             this.scanner = scanner;
+            this.collectionForWork = collectionForWork;
         }
 
         public void setLoadObject(Object loadObject){
@@ -31,7 +34,9 @@ public class MovieFactory {
         public Scanner getScanner(){
             return scanner;
         }
-
+        public LinkedHashSet<Movie> getCollectionForWork() {
+        return collectionForWork;
+    }
 
     public Movie GetMovieFromConsole(){
         long id;

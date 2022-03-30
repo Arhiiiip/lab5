@@ -3,8 +3,6 @@ package Command;
 import Data.Movie;
 import utility.MovieFactory;
 
-import java.util.LinkedHashSet;
-
 public class AddIfMaxCommand extends CommandAbstract{
 
     MovieFactory movieFactory;
@@ -14,17 +12,16 @@ public class AddIfMaxCommand extends CommandAbstract{
         this.movieFactory = movieFactory;
     }
 
-    public void execute(String arg, LinkedHashSet<Movie> collectionForWork) {
+    public void execute(String arg) {
         Movie movieForAdd = movieFactory.GetMovieFromConsole();
         int oscarsCountFromUser = movieForAdd.getOscarsCount();
         int maxOscarsCount = 0;
-        for (Movie movie : collectionForWork){
-            if (movie.getOscarsCount() > maxOscarsCount){
+        for (Movie movie : movieFactory.getCollectionForWork())
+            if (movie.getOscarsCount() > maxOscarsCount) {
                 maxOscarsCount = movie.getOscarsCount();
             }
-        }
         if(oscarsCountFromUser > maxOscarsCount) {
-            collectionForWork.add(movieForAdd);
+            movieFactory.getCollectionForWork().add(movieForAdd);
         }
         else{
             System.out.println("Таких элементов нет");

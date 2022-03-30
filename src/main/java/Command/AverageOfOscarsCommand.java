@@ -1,26 +1,25 @@
 package Command;
 
 import Data.Movie;
-
-import java.util.LinkedHashSet;
+import utility.MovieFactory;
 
 public class AverageOfOscarsCommand extends CommandAbstract{
 
+    MovieFactory movieFactory;
 
-    public AverageOfOscarsCommand(String name, String description) {
+    public AverageOfOscarsCommand(String name, String description, MovieFactory movieFactory) {
         super(name, description);
+        this.movieFactory = movieFactory;
     }
 
-    public void execute(String arg, LinkedHashSet<Movie> collectionForWork) {
+    public void execute(String arg) {
         int sum = 0;
         float average;
-        Object[] array = collectionForWork.toArray();
-        for (int i = 0; i < array.length; i++){
-            Movie mov = (Movie) array[i];
-            sum = sum + mov.getOscarsCount();
+        for (Movie movie: movieFactory.getCollectionForWork()){
+            sum = sum + movie.getOscarsCount();
         }
-        average = sum/array.length;
+        average = sum/movieFactory.getCollectionForWork().size();
         System.out.println(average);
-        System.out.println(sum/array.length);
+        System.out.println(sum/movieFactory.getCollectionForWork().size());
     }
 }

@@ -1,9 +1,5 @@
 package Command;
 
-import Data.Movie;
-
-import java.util.LinkedHashSet;
-
 public abstract class CommandAbstract {
     final String name;
     final String description;
@@ -13,7 +9,7 @@ public abstract class CommandAbstract {
         this.description = description;
     }
 
-    public void execute(String arg, LinkedHashSet<Movie> collectionForWork) {
+    public void execute(String arg) {
     }
 
     @Override

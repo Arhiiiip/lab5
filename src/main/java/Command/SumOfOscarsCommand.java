@@ -1,21 +1,21 @@
 package Command;
 
 import Data.Movie;
-
-import java.util.LinkedHashSet;
+import utility.MovieFactory;
 
 public class SumOfOscarsCommand extends CommandAbstract {
 
-    public SumOfOscarsCommand(String name, String description) {
+    MovieFactory movieFactory;
+
+    public SumOfOscarsCommand(String name, String description, MovieFactory movieFactory) {
         super(name, description);
+        this.movieFactory = movieFactory;
     }
 
-    public void execute(String arg, LinkedHashSet<Movie> collectionForWork) {
+    public void execute(String arg) {
         int sum = 0;
-        Object[] array = collectionForWork.toArray();
-        for (int i = 0; i < array.length; i++){
-            Movie mov = (Movie) array[i];
-            sum = sum + mov.getOscarsCount();
+        for (Movie movie : movieFactory.getCollectionForWork()){
+            sum = sum + movie.getOscarsCount();
         }
         System.out.println(sum);
     }

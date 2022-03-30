@@ -3,8 +3,6 @@ package Command;
 import Data.Movie;
 import utility.MovieFactory;
 
-import java.util.LinkedHashSet;
-
 public class AddCommand extends CommandAbstract{
     MovieFactory movieFactory;
 
@@ -15,8 +13,8 @@ public class AddCommand extends CommandAbstract{
     }
 
     @Override
-    public void execute(String arg, LinkedHashSet<Movie> collectionForWork) {
+    public void execute(String arg) {
         Movie movie = movieFactory.GetMovieFromConsole();
-        collectionForWork.add(movie);
+        movieFactory.getCollectionForWork().add(movie);
     }
 }

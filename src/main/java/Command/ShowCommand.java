@@ -1,19 +1,20 @@
 package Command;
 
 import Data.Movie;
-
-import java.util.LinkedHashSet;
+import utility.MovieFactory;
 
 public class ShowCommand extends CommandAbstract {
 
-    public ShowCommand(String name, String description) {
+    MovieFactory movieFactory;
+
+    public ShowCommand(String name, String description, MovieFactory movieFactory) {
         super(name, description);
+        this.movieFactory = movieFactory;
     }
 
-    public void execute(String arg, LinkedHashSet<Movie> collectionForWork) {
-        Object[] array = collectionForWork.toArray();
-        for (int i = 0; i < array.length; i++){
-            System.out.println(array[i]);
+    public void execute(String arg) {
+        for (Movie movie : movieFactory.getCollectionForWork()){
+            System.out.println(movie.toString());
         }
     }
 }

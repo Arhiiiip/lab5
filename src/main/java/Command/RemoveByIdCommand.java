@@ -3,8 +3,6 @@ package Command;
 import Data.Movie;
 import utility.MovieFactory;
 
-import java.util.LinkedHashSet;
-
 public class RemoveByIdCommand extends CommandAbstract{
     
     private final MovieFactory movieFactory;
@@ -14,12 +12,12 @@ public class RemoveByIdCommand extends CommandAbstract{
         this.movieFactory = movieFactory;
     }
 //TODO remove by id
-     public void execute(String arg, LinkedHashSet<Movie> collectionForWork) {
+     public void execute(String arg) {
         long idFromUser = Long.valueOf(arg);
         boolean isId = false;
-        for (Movie movie : collectionForWork){
+        for (Movie movie : movieFactory.getCollectionForWork()){
             if (movie.getId() == idFromUser){
-                collectionForWork.remove(movie);
+                movieFactory.getCollectionForWork().remove(movie);
                 isId = true;
                 break;
             }

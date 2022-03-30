@@ -14,6 +14,7 @@ import java.util.Scanner;
 
 
 public class Main {
+    public boolean temp = true;
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
         Scanner scanner = new Scanner(System.in);
         String link = args[0];
@@ -21,13 +22,17 @@ public class Main {
         LinkedHashSet<Movie> collectionForWork = fileWorker.parse(link);
         HashSet hashSetId = fileWorker.takeHashSetId();
         System.out.println(scanner);
-        String commandUser = scanner.nextLine();
-        MovieFactory movieFactory = new MovieFactory(scanner, hashSetId);
+        MovieFactory movieFactory = new MovieFactory(scanner, hashSetId, collectionForWork);
         Receiver receiver = new Receiver();
-        Invoker invoker = new Invoker(collectionForWork, receiver, movieFactory);
-        String arg = scanner.nextLine();
-        invoker.execute(commandUser,arg, collectionForWork);
-        System.out.println(collectionForWork);
+        boolean temp = true;
+        Invoker invoker = new Invoker(receiver, movieFactory, temp);
+        //TODO exit не работает
+        while (temp) {
+            String commandUser = scanner.nextLine();
+            String arg = scanner.nextLine();
+            invoker.execute(commandUser, arg);
+            System.out.println(collectionForWork);
+        }
     }
 
 }
