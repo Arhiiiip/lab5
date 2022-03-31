@@ -9,7 +9,7 @@ public abstract class CommandAbstract {
         this.description = description;
     }
 
-    public void execute(String arg) {
+    public void execute(String arg){
     }
 
     @Override

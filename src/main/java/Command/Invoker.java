@@ -29,6 +29,8 @@ boolean temp;
         commands.put("add_if_min", new AddIfMinCommand("add_if_min {element}", "Добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции", movieFactory));
         commands.put("update_id", new UpdateIdCommand("update id {element}", "Oбновить значение элемента коллекции, id которого равен заданному", movieFactory));
         commands.put("exit", new ExitCommand("exit", "Завершить программу (без сохранения в файл)",movieFactory, temp));
+        commands.put("count_greater_than_genre",  new CountGreaterGenreCommand("count_greater_than_genre genre", "Вывести количество элементов, значение поля genre которых больше заданного", movieFactory));
+        commands.put("save", new SaveCommand("save", "сейв", movieFactory));
     }
 
     public void execute(String name,String arg){

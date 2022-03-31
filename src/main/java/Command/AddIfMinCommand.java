@@ -3,7 +3,7 @@ package Command;
 import Data.Movie;
 import utility.MovieFactory;
 
-public class AddIfMinCommand extends CommandAbstract{
+public class AddIfMinCommand extends CommandAbstract {
 
     MovieFactory movieFactory;
 
@@ -15,16 +15,16 @@ public class AddIfMinCommand extends CommandAbstract{
     public void execute(String arg) {
         Movie movieForAdd = movieFactory.GetMovieFromConsole();
         int oscarsCountFromUser = movieForAdd.getOscarsCount();
-        int minOscarsCount = (int) Math.pow(2,32);
-        for (Movie movie : movieFactory.getCollectionForWork()){
-            if (movie.getOscarsCount() < minOscarsCount){
+        int minOscarsCount = (int) Math.pow(2, 32);
+        for (Movie movie : movieFactory.getCollectionForWork()) {
+            if (movie.getOscarsCount() < minOscarsCount) {
                 minOscarsCount = movie.getOscarsCount();
             }
         }
-        if(oscarsCountFromUser < minOscarsCount) {
+        if (oscarsCountFromUser < minOscarsCount) {
             movieFactory.getCollectionForWork().add(movieForAdd);
-        }
-        else{
+        } else {
             System.out.println("Таких элементов нет");
-        }    }
+        }
+    }
 }

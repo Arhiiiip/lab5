@@ -15,7 +15,6 @@ public class HelpCommand extends CommandAbstract{
         this.movieFactory = movieFactory;
     }
 
-//TODO HELP command
     public void execute(String arg) {
         for (Map.Entry<String, CommandAbstract> entry : commands.entrySet()) {
             System.out.println(entry.getValue().toString());

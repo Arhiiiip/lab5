@@ -3,7 +3,7 @@ package Command;
 import Data.Movie;
 import utility.MovieFactory;
 
-public class AddCommand extends CommandAbstract{
+public class AddCommand extends CommandAbstract {
     MovieFactory movieFactory;
 
 

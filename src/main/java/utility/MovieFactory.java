@@ -58,13 +58,12 @@ public class MovieFactory {
         String locationName;
 
         ReadAndCheck readAndCheck = new ReadAndCheck(scanner, boolWF);
-        id = readAndCheck.creatAndCheckId(hashSetId);
+        id = readAndCheck.autoCreatAndCheckId(hashSetId);
         movieName = readAndCheck.readAndCheckName();
         coordinatesX = readAndCheck.readAndCheckCordinateX();
         coordinatesY = readAndCheck.readAndCheckCordinateY();
         coordinates = new Coordinates(coordinatesX, coordinatesY);
-        //TODO Сделать date автоматическим
-        LocalDateTime creationDate = null;
+        LocalDateTime creationDate = readAndCheck.autoCreatAndCheckDate();
         oscarsCount = readAndCheck.readAndCheckOscarsCount();
         genre = readAndCheck.readAndCheckMovieGenre();
         mpaaRating = readAndCheck.readAndCheckMpaaRating();

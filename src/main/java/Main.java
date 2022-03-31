@@ -14,11 +14,12 @@ import java.util.Scanner;
 
 
 public class Main {
-    public boolean temp = true;
+
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
         Scanner scanner = new Scanner(System.in);
         String link = args[0];
         FileWorker fileWorker = new FileWorker();
+        //TODO Проверить валидность файла
         LinkedHashSet<Movie> collectionForWork = fileWorker.parse(link);
         HashSet hashSetId = fileWorker.takeHashSetId();
         System.out.println(scanner);
@@ -26,7 +27,6 @@ public class Main {
         Receiver receiver = new Receiver();
         boolean temp = true;
         Invoker invoker = new Invoker(receiver, movieFactory, temp);
-        //TODO exit не работает
         while (temp) {
             String commandUser = scanner.nextLine();
             String arg = scanner.nextLine();
@@ -34,5 +34,4 @@ public class Main {
             System.out.println(collectionForWork);
         }
     }
-
 }

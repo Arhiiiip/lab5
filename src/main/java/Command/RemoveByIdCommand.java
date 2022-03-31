@@ -11,7 +11,7 @@ public class RemoveByIdCommand extends CommandAbstract{
         super(name, description);
         this.movieFactory = movieFactory;
     }
-//TODO remove by id
+
      public void execute(String arg) {
         long idFromUser = Long.valueOf(arg);
         boolean isId = false;

@@ -10,7 +10,7 @@ public class UpdateIdCommand extends CommandAbstract{
         super(name, description);
         this.movieFactory = movieFactory;
     }
-//TODO update id
+
     public void execute(String arg) {
         Movie movieForChange = movieFactory.GetMovieFromConsole();
         long idFromUser = Long.parseLong(arg);

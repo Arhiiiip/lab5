@@ -12,8 +12,9 @@ public class ExitCommand extends CommandAbstract{
         this.temp = temp;
         this.movieFactory = movieFactory;
     }
-//TODO exit
+//TODO работает, но надо ещё закрывать процессы.
     public void execute(String arg) {
         temp = false;
+        System.exit(0);
     }
 }

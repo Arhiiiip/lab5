@@ -13,7 +13,7 @@ public class RemoveLowerCommand extends CommandAbstract{
         super(name, description);
         this.movieFactory = movieFactory;
     }
-//TODO remove lower
+
     public void execute(String arg) {
         long oscarsCountFromUser = Integer.valueOf(arg);
         LinkedHashSet<Movie> collectionForRemove = new LinkedHashSet<Movie>();

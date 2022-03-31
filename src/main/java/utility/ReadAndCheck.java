@@ -5,6 +5,8 @@ import Data.Country;
 import Data.MovieGenre;
 import Data.MpaaRating;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -125,8 +127,7 @@ public class ReadAndCheck {
         }
     }
 
-    //TODO Убрать эту проверку с ID
-    public long creatAndCheckId(HashSet collection) {
+    public long autoCreatAndCheckId(HashSet collection) {
         System.out.println("Введите айди, а нет идите нахуй, айди сам вводится.");
         for (long i = 0, id = 1; i < (collection.size() + 1); i++, id++) {
             if (!collection.contains(id)) {
@@ -135,6 +136,13 @@ public class ReadAndCheck {
             }
         }
         return 0;
+    }
+    public LocalDateTime autoCreatAndCheckDate(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy'T'HH:mm");
+        LocalDateTime date = LocalDateTime.now();
+        CharSequence forOut = date.format(formatter);
+        LocalDateTime dateFor = LocalDateTime.parse(forOut, formatter);
+        return dateFor;
     }
 
     public Integer readAndCheckOscarsCount() {

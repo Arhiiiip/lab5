@@ -12,6 +12,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -47,7 +49,7 @@ public class FileWorker {
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = factory.newDocumentBuilder();
-        Document document = (Document) documentBuilder.parse(file);
+        Document document = documentBuilder.parse(file);
 
         NodeList movieNodeList = document.getElementsByTagName("movie");
 
@@ -79,8 +81,11 @@ public class FileWorker {
                 }
 
                 try {
-                    tempCreationDate = java.time.LocalDateTime.parse(element.getElementsByTagName("creationDate").item(0).getTextContent());
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+                    LocalDateTime date = LocalDateTime.parse(element.getElementsByTagName("creationDate").item(0).getTextContent(), formatter);
+                    tempCreationDate = date;
                 } catch (DateTimeParseException exception) {
+                    tempCreationDate = null;
                     System.out.println("Wrong");
                 }
 
@@ -131,9 +136,9 @@ public class FileWorker {
                 tempLocationName = elementLocation.getElementsByTagName("name").item(0).getTextContent();
 
                 try {
-                    tempLocationX = Integer.parseInt(elementLocation.getElementsByTagName("loc_y").item(0).getTextContent());
+                    tempLocationX = Integer.parseInt(elementLocation.getElementsByTagName("loc_x").item(0).getTextContent());
                 } catch (NumberFormatException exeption) {
-                    System.out.println("sosi");
+                    System.out.println("sosi x");
                 }
 
                 try {

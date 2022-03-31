@@ -1,12 +1,51 @@
 package Command;
 
+import Data.Movie;
+import utility.MovieFactory;
+
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 public class SaveCommand extends CommandAbstract{
 
-    public SaveCommand(String name, String description) {
+    MovieFactory movieFactory;
+
+    public SaveCommand(String name, String description, MovieFactory movieFactory) {
         super(name, description);
+        this.movieFactory = movieFactory;
     }
-//TODO save
-    public void execute(String arg) {
-        System.out.println("save");
+
+    public void execute(String arg){
+        String link = "C:\\Users\\Asus\\Desktop\\Her\\Porno\\Lab5\\Test_1.0.xml";
+        PrintWriter fileOut = null;
+        try {
+            fileOut = new PrintWriter(link);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        fileOut.println("<movies>");
+        for(Movie movie : movieFactory.getCollectionForWork()){
+            fileOut.println("<movie>");
+            fileOut.println("<id>" + movie.getId() + "</id>");
+            fileOut.println("<name>" + movie.getName() + "</name>");
+            fileOut.println("<coordinates>" + "\n" + "<coordinate_x>" + movie.getCoordinates().getX() + "</coordinate_x>" + "\n" + "<coordinate_y>" + movie.getCoordinates().getY() + "</coordinate_y>" +"\n" + "</coordinates>");
+            fileOut.println("<creationDate>" + movie.getCreationDate() + "</creationDate>");
+            fileOut.println("<oscarsCount>" + movie.getOscarsCount() + "</oscarsCount>");
+            fileOut.println("<genre>" + movie.getGenre() + "</genre>");
+            fileOut.println("<mpaaRating>" + movie.getMpaaRating() + "</mpaaRating>");
+            fileOut.print("<director>" + "\n" +
+                    "<name>" + movie.getDirector().getName() + "</name>" + "\n" +
+                    "<weight>" + movie.getDirector().getWeight() + "</weight>" + "\n" +
+                    "<eyecolor>" + movie.getDirector().getEyeColor() + "</eyecolor>" + "\n" +
+                    "<nationality>" + movie.getDirector().getNationality() + "</nationality>" + "\n" +
+                    "<location>" + "\n" +
+                    "<loc_x>" + movie.getDirector().getLocation().getX() + "</loc_x>" + "\n" +
+                    "<loc_y>" + movie.getDirector().getLocation().getY() + "</loc_y>" + "\n" +
+                    "<name>" + movie.getDirector().getLocation().getName() + "</name>" + "\n" +
+                    "</location>" + "\n" + "</director>" + "\n" + "</movie>" + "\n"
+            );
+        }
+        fileOut.println("</movies>");
+        fileOut.close();
     }
 }
