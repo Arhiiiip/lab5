@@ -16,5 +16,6 @@ public class AddCommand extends CommandAbstract {
     public void execute(String arg) {
         Movie movie = movieFactory.GetMovieFromConsole();
         movieFactory.getCollectionForWork().add(movie);
+        movieFactory.getCollectionManager().setDateUpdate();
     }
 }

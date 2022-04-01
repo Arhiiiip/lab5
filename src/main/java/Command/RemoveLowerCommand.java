@@ -26,6 +26,7 @@ public class RemoveLowerCommand extends CommandAbstract{
         }
         if(isElements){
             movieFactory.getCollectionForWork().removeAll(collectionForRemove);
+            movieFactory.getCollectionManager().setDateUpdate();
         }else{
             System.out.println("Таких элементов нет");
         }

@@ -23,6 +23,7 @@ public class AddIfMinCommand extends CommandAbstract {
         }
         if (oscarsCountFromUser < minOscarsCount) {
             movieFactory.getCollectionForWork().add(movieForAdd);
+            movieFactory.getCollectionManager().setDateUpdate();
         } else {
             System.out.println("Таких элементов нет");
         }

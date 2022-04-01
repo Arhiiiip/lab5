@@ -19,6 +19,7 @@ public class RemoveByIdCommand extends CommandAbstract{
             if (movie.getId() == idFromUser){
                 movieFactory.getCollectionForWork().remove(movie);
                 isId = true;
+                movieFactory.getCollectionManager().setDateUpdate();
                 break;
             }
         }

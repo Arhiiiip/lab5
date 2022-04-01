@@ -16,7 +16,7 @@ boolean temp;
         initCommands(movieFactory);
     }
 
-    public void initCommands(MovieFactory movieFactory){
+    public void initCommands(MovieFactory movieFactory) {
         commands.put("add", new AddCommand("add {element}", "Добавить новый элемент в коллекцию", movieFactory));
         commands.put("help", new HelpCommand("help", "Вывести справку по доступным командам", movieFactory, commands));
         commands.put("show", new ShowCommand("show", "Вывести в стандартный поток вывода все элементы коллекции в строковом представлении", movieFactory));
@@ -28,11 +28,11 @@ boolean temp;
         commands.put("add_if_max", new AddIfMaxCommand("add_if_max {element}", "Добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции", movieFactory));
         commands.put("add_if_min", new AddIfMinCommand("add_if_min {element}", "Добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции", movieFactory));
         commands.put("update_id", new UpdateIdCommand("update id {element}", "Oбновить значение элемента коллекции, id которого равен заданному", movieFactory));
-        commands.put("exit", new ExitCommand("exit", "Завершить программу (без сохранения в файл)",movieFactory, temp));
-        commands.put("count_greater_than_genre",  new CountGreaterGenreCommand("count_greater_than_genre genre", "Вывести количество элементов, значение поля genre которых больше заданного", movieFactory));
+        commands.put("exit", new ExitCommand("exit", "Завершить программу (без сохранения в файл)", movieFactory, temp));
+        commands.put("count_greater_than_genre", new CountGreaterGenreCommand("count_greater_than_genre genre", "Вывести количество элементов, значение поля genre которых больше заданного", movieFactory));
         commands.put("save", new SaveCommand("save", "сейв", movieFactory));
+        commands.put("info", new InfoCommand("info", "Инфо", movieFactory));
     }
-
     public void execute(String name,String arg){
         if (commands.containsKey(name)) {
             receiver.execute(commands.get(name),arg);

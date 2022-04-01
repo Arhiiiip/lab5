@@ -22,6 +22,7 @@ public class AddIfMaxCommand extends CommandAbstract{
             }
         if(oscarsCountFromUser > maxOscarsCount) {
             movieFactory.getCollectionForWork().add(movieForAdd);
+            movieFactory.getCollectionManager().setDateUpdate();
         }
         else{
             System.out.println("Таких элементов нет");

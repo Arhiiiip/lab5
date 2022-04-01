@@ -12,6 +12,11 @@ public class ClearCommand extends CommandAbstract{
     }
 
     public void execute(String arg) {
-        movieFactory.getCollectionForWork().clear();
+        if (!(movieFactory.getCollectionForWork().size() == 0)) {
+            movieFactory.getCollectionForWork().clear();
+            movieFactory.getCollectionManager().setDateUpdate();
+        }else{
+            System.out.println("Коллекция уже пустая!");
+        }
     }
 }

@@ -47,5 +47,6 @@ public class SaveCommand extends CommandAbstract{
         }
         fileOut.println("</movies>");
         fileOut.close();
+        movieFactory.getCollectionManager().setSavedCollection(movieFactory.getCollectionForWork());
     }
 }

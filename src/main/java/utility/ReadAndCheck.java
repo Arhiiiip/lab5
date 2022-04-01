@@ -140,9 +140,9 @@ public class ReadAndCheck {
     public LocalDateTime autoCreatAndCheckDate(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy'T'HH:mm");
         LocalDateTime date = LocalDateTime.now();
-        CharSequence forOut = date.format(formatter);
-        LocalDateTime dateFor = LocalDateTime.parse(forOut, formatter);
-        return dateFor;
+        CharSequence dateFormate = date.format(formatter);
+        LocalDateTime dateForOut = LocalDateTime.parse(dateFormate, formatter);
+        return dateForOut;
     }
 
     public Integer readAndCheckOscarsCount() {

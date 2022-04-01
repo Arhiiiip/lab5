@@ -2,11 +2,13 @@ import Command.Invoker;
 import Command.Receiver;
 import Data.Movie;
 import org.xml.sax.SAXException;
+import utility.CollectionManager;
 import utility.FileWorker;
 import utility.MovieFactory;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
@@ -21,9 +23,10 @@ public class Main {
         FileWorker fileWorker = new FileWorker();
         //TODO Проверить валидность файла
         LinkedHashSet<Movie> collectionForWork = fileWorker.parse(link);
+        CollectionManager collectionManager = new CollectionManager(collectionForWork, LocalDateTime.now(), LocalDateTime.now(), 0);
         HashSet hashSetId = fileWorker.takeHashSetId();
         System.out.println(scanner);
-        MovieFactory movieFactory = new MovieFactory(scanner, hashSetId, collectionForWork);
+        MovieFactory movieFactory = new MovieFactory(scanner, hashSetId, collectionForWork, collectionManager);
         Receiver receiver = new Receiver();
         boolean temp = true;
         Invoker invoker = new Invoker(receiver, movieFactory, temp);

@@ -15,11 +15,22 @@ public class MovieFactory {
         HashSet hashSetId;
         private boolean boolWF;
         LinkedHashSet<Movie> collectionForWork;
+        CollectionManager collectionManager;
 
-        public MovieFactory(Scanner scanner, HashSet hashSetId, LinkedHashSet<Movie> collectionForWork) {
+    public CollectionManager getCollectionManager() {
+        return collectionManager;
+    }
+
+    public void setCollectionManager(CollectionManager collectionManager) {
+        this.collectionManager = collectionManager;
+    }
+
+    public MovieFactory(Scanner scanner, HashSet hashSetId, LinkedHashSet<Movie> collectionForWork, CollectionManager collectionManager) {
             this.hashSetId = hashSetId;
             this.scanner = scanner;
             this.collectionForWork = collectionForWork;
+            this.collectionManager = collectionManager;
+
         }
 
         public void setLoadObject(Object loadObject){
