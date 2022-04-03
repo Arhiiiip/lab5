@@ -12,7 +12,7 @@ public class InfoCommand extends CommandAbstract{
     }
 
     public void execute(String arg) {
-        System.out.println("Информация о коллекции:" + "\n" +
+        System.out.println("Iнформация о коллекции:" + "\n" +
         movieFactory.getCollectionForWork().getClass() + "\n" +
         "Колличество эллементов: " + movieFactory.getCollectionForWork().size() + "\n" +
         "Дата и время инициализации: " + movieFactory.getCollectionManager().getDateInitialization() + "\n" +

@@ -1,34 +1,21 @@
 package Data;
 
 public enum MovieGenre {
-    WESTERN("WESTERN", "western"),
-    DRAMA("DRAMA", "drama"),
-    TRAGEDY("TRAGEDY", "tragedy"),
-    SCIENCE_FICTION("SCIENCE_FICTION", "science_fiction");
-
-    private final String stringInUpperCaseRepresentation;
-    private final String stringInLowerCaseRepresentation;
-
-    MovieGenre(String aStringInUpperCaseRepresentation, String aStringInLowerCaseRepresentation) {
-        stringInUpperCaseRepresentation = aStringInUpperCaseRepresentation;
-        stringInLowerCaseRepresentation = aStringInLowerCaseRepresentation;
-    }
-
-    private String getStringInLowerCaseRepresentation() {
-        return stringInLowerCaseRepresentation;
-    }
-
-    private String getStringInUpperCaseRepresentation() {
-        return stringInUpperCaseRepresentation;
-    }
+    WESTERN,
+    DRAMA,
+    TRAGEDY,
+    SCIENCE_FICTION;
 
     public static boolean isIncludeElement(String aMovieGenre) {
-
-        for (MovieGenre currentMovieGenre : MovieGenre.values()) {
-            if (aMovieGenre.equals(currentMovieGenre.getStringInUpperCaseRepresentation())) return true;
-            if (aMovieGenre.equals(currentMovieGenre.getStringInLowerCaseRepresentation())) return true;
+        for (MovieGenre current : MovieGenre.values()) {
+            if (current.equals(aMovieGenre.toUpperCase())) return true;
         }
-
         return false;
+    }
+
+    public boolean equals(String arg){
+        MovieGenre genre = this;
+        String genreForEquals = String.valueOf(genre);
+        return (genreForEquals.equals(arg));
     }
 }

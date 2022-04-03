@@ -31,13 +31,24 @@ boolean temp;
         commands.put("exit", new ExitCommand("exit", "Завершить программу (без сохранения в файл)", movieFactory, temp));
         commands.put("count_greater_than_genre", new CountGreaterGenreCommand("count_greater_than_genre genre", "Вывести количество элементов, значение поля genre которых больше заданного", movieFactory));
         commands.put("save", new SaveCommand("save", "сейв", movieFactory));
-        commands.put("info", new InfoCommand("info", "Инфо", movieFactory));
+        commands.put("info", new InfoCommand("info", "Iнфо", movieFactory));
     }
-    public void execute(String name,String arg){
-        if (commands.containsKey(name)) {
-            receiver.execute(commands.get(name),arg);
-        } else {
-            System.out.println("Input is incorrect.");
+    public void execute(String command){
+        if (!(command.equals(""))) {
+            String[] parts = command.split(" ");
+            if (parts.length == 2) {
+                if (commands.containsKey(parts[0])) {
+                    receiver.execute(commands.get(parts[0]), parts[1]);
+                } else {
+                    System.out.println("Я гей, я пизжу чужой код");
+                }
+            } else {
+                if (commands.containsKey(command)) {
+                    receiver.execute(commands.get(command), "");
+                } else {
+                    System.out.println("Я гей, я пизжу чужой код");
+                }
+            }
         }
     }
 }
