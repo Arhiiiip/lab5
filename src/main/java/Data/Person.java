@@ -69,12 +69,10 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", weight=" + weight +
-                ", eyeColor=" + eyeColor +
-                ", nationality=" + nationality +
-                ", location=" + location +
-                '}';
+        return "Name: " + name +
+                ", weight: " + weight +
+                ", eyeColor: " + eyeColor +
+                ", nationality: " + nationality +
+                ", location: " + location;
     }
 }

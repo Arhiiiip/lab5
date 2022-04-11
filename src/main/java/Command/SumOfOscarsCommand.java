@@ -7,8 +7,8 @@ public class SumOfOscarsCommand extends CommandAbstract {
 
     MovieFactory movieFactory;
 
-    public SumOfOscarsCommand(String name, String description, MovieFactory movieFactory) {
-        super(name, description);
+    public SumOfOscarsCommand(String name, String description, MovieFactory movieFactory, boolean isArgument) {
+        super(name, description, isArgument);
         this.movieFactory = movieFactory;
     }
 

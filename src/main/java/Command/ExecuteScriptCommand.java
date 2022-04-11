@@ -1,13 +1,55 @@
 package Command;
 
-public class ExecuteScriptCommand extends CommandAbstract{
+import utility.MovieFactory;
+import utility.ReadAndCheck;
+import utility.Reader;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class ExecuteScriptCommand extends CommandAbstract {
+
+    Invoker invoker;
+    MovieFactory movieFactory;
+    private RuntimeException RuntimeException = new RuntimeException();
+    HashMap<String, CommandAbstract> commands;
+    HashSet<String> files;
 
 
-    public ExecuteScriptCommand(String name, String description) {
-        super(name, description);
+    public ExecuteScriptCommand(String name, String description, MovieFactory movieFactory, HashMap<String, CommandAbstract> commands, Invoker invoker, HashSet<String> files, boolean isArgument) {
+        super(name, description, isArgument);
+        this.movieFactory = movieFactory;
+        this.commands = commands;
+        this.invoker = invoker;
+        this.files = files;
     }
-//TODO execute script
+
     public void execute(String arg) {
-        System.out.println("execute script");
+        if (files.contains(arg)) {
+            System.out.println("Произошло зацикливание жопы");
+            return;
+        }
+        files.add(arg);
+        Scanner scannerForFile;
+        try {
+//            Receiver receiver = new Receiver();
+//            Invoker invoker2 = new Invoker(receiver, movieFactory);
+            scannerForFile = new Scanner(new File(arg));
+            Scanner prevScanner = Reader.scanner;
+            Reader readerForFile = new Reader(scannerForFile, invoker);
+            while (scannerForFile.hasNextLine()) {
+                ReadAndCheck.setReader(readerForFile);
+                invoker.execute(readerForFile.read());
+            }
+            files.remove(arg);
+            scannerForFile.close();
+            Reader.setScanner(prevScanner);
+//            ReadAndCheck.setReader(Reader.readerFirst);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

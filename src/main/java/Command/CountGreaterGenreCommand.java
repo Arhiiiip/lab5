@@ -8,8 +8,8 @@ public class CountGreaterGenreCommand extends CommandAbstract {
 
     MovieFactory movieFactory;
 
-    public CountGreaterGenreCommand(String name, String description, MovieFactory movieFactory) {
-        super(name, description);
+    public CountGreaterGenreCommand(String name, String description, MovieFactory movieFactory, boolean isArgument) {
+        super(name, description, isArgument);
         this.movieFactory = movieFactory;
     }
 

@@ -7,12 +7,12 @@ public class AddIfMaxCommand extends CommandAbstract{
 
     MovieFactory movieFactory;
 
-    public AddIfMaxCommand(String name, String description, MovieFactory movieFactory) {
-        super(name, description);
+    public AddIfMaxCommand(String name, String description, MovieFactory movieFactory, boolean isArgument) {
+        super(name, description, isArgument);
         this.movieFactory = movieFactory;
     }
 
-    public void execute(String arg) {
+    public void execute(String arg){
         Movie movieForAdd = movieFactory.GetMovieFromConsole();
         int oscarsCountFromUser = movieForAdd.getOscarsCount();
         int maxOscarsCount = 0;

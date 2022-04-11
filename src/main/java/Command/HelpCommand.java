@@ -9,8 +9,8 @@ public class HelpCommand extends CommandAbstract{
 
     MovieFactory movieFactory;
 
-    public HelpCommand(String name, String description, MovieFactory movieFactory, Map<String, CommandAbstract> commands) {
-        super(name, description);
+    public HelpCommand(String name, String description, MovieFactory movieFactory, Map<String, CommandAbstract> commands, boolean isArgument) {
+        super(name, description, isArgument);
         this.commands = commands;
         this.movieFactory = movieFactory;
     }

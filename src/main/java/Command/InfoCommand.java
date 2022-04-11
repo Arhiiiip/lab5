@@ -6,8 +6,8 @@ public class InfoCommand extends CommandAbstract{
 
     MovieFactory movieFactory;
 
-    public InfoCommand(String name, String description, MovieFactory movieFactory) {
-        super(name, description);
+    public InfoCommand(String name, String description, MovieFactory movieFactory, boolean isArgument) {
+        super(name, description, isArgument);
         this.movieFactory = movieFactory;
     }
 
@@ -16,7 +16,6 @@ public class InfoCommand extends CommandAbstract{
         movieFactory.getCollectionForWork().getClass() + "\n" +
         "Колличество эллементов: " + movieFactory.getCollectionForWork().size() + "\n" +
         "Дата и время инициализации: " + movieFactory.getCollectionManager().getDateInitialization() + "\n" +
-        "Дата и время последнего обновления: " + movieFactory.getCollectionManager().getDateUpdate() + "\n" +
-        "Количество не сохранённых изменённых элементов: " + movieFactory.getCollectionManager().getCountChange());
+        "Дата и время последнего обновления: " + movieFactory.getCollectionManager().getDateUpdate());
     }
 }

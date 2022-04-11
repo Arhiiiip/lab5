@@ -1,25 +1,50 @@
 package utility;
 
+import Command.Invoker;
+
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Reader {
-    private Scanner scanner = new Scanner(System.in);
-    String line;
 
-    public String read(){
+    public static Scanner scanner;
+    public Invoker invoker;
+    static String line;
+
+    public Reader(Scanner scanner, Invoker invoker) {
+        Reader.scanner = scanner;
+        this.invoker = invoker;
+    }
+
+    public String read() {
+        try {
             line = "";
-            while (line.equals("")){
+            while (line.equals("") && scanner.hasNextLine()) {
                 line = scanner.nextLine();
-            String lineNoneSpace = line.replaceAll(" ", "");
-            if (lineNoneSpace.length() == 0) {
-                line = "";
-                System.out.println("Вы ничего не ввели.");
+                String lineNoneSpace = line.replaceAll(" ", "");
+                if (!(lineNoneSpace.length() == 0)) {
+                    return line;
+                } else {
+                    System.out.println("Вы ничего не ввели");
+                }
             }
-            if (lineNoneSpace.equals("exit")) {
-                scanner.close();
-                return line;
-            }
+            if (!scanner.hasNextLine() && line.equals("")){
+                return "exit";
+            } else return line;
+        }catch (NoSuchElementException exception){
+            System.out.println("Фаршмак");
+            return "exit";
+        }catch (IllegalStateException exception){
+            System.out.println("CYYYYKAAAAA");
+            return "exit";
         }
-            return line;
+    }
+
+    public static Scanner getScanner() {
+        return scanner;
+    }
+
+    public static void setScanner(Scanner scanner) {
+        Reader.scanner = scanner;
     }
 }

@@ -6,8 +6,8 @@ import utility.MovieFactory;
 public class UpdateIdCommand extends CommandAbstract{
     MovieFactory movieFactory;
 
-    public UpdateIdCommand(String name, String description, MovieFactory movieFactory) {
-        super(name, description);
+    public UpdateIdCommand(String name, String description, MovieFactory movieFactory, boolean isArgument) {
+        super(name, description, isArgument);
         this.movieFactory = movieFactory;
     }
 

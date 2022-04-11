@@ -96,9 +96,9 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "\n" + "id:" + id + ", " + name + ", " + coordinates.toString() + ", " + creationDate
-                + ", " + oscarsCount + ", " + genre + ", " + mpaaRating
-                + ", " + director.toString();
+        return "\n" + "id:" + id + "\n" + name + "\n" + coordinates.toString() + "\n" + "Дата создания: " + creationDate
+                + "\nКоличество оскаров: " + oscarsCount + "\nЖанр: " + genre + "\nMpaaRating: " + mpaaRating
+                + "\nDirector: " + director.toString() + "\n";
     }
 
 

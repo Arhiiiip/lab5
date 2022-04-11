@@ -170,7 +170,7 @@ public class FileWorker {
         if (countErrorElement != 0){
             System.out.println("Количество проблемных элементов: " + countErrorElement);
         }
-        System.out.println(collectionFromFile);
+//        System.out.println(collectionFromFile);
     return collectionFromFile;
     }
     public HashSet takeHashSetId(){

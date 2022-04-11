@@ -7,12 +7,12 @@ public class AddIfMinCommand extends CommandAbstract {
 
     MovieFactory movieFactory;
 
-    public AddIfMinCommand(String name, String description, MovieFactory movieFactory) {
-        super(name, description);
+    public AddIfMinCommand(String name, String description, MovieFactory movieFactory, boolean isArgument) {
+        super(name, description, isArgument);
         this.movieFactory = movieFactory;
     }
 
-    public void execute(String arg) {
+    public void execute(String arg){
         Movie movieForAdd = movieFactory.GetMovieFromConsole();
         int oscarsCountFromUser = movieForAdd.getOscarsCount();
         int minOscarsCount = (int) Math.pow(2, 32);

@@ -7,8 +7,8 @@ public class ShowCommand extends CommandAbstract {
 
     MovieFactory movieFactory;
 
-    public ShowCommand(String name, String description, MovieFactory movieFactory) {
-        super(name, description);
+    public ShowCommand(String name, String description, MovieFactory movieFactory, boolean isArgument) {
+        super(name, description, isArgument);
         this.movieFactory = movieFactory;
     }
 

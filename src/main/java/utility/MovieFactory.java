@@ -8,13 +8,40 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 
 public class MovieFactory {
-        private Reader reader;
-        private Long id;
-        private Object loadObject;
-        HashSet hashSetId;
-        private boolean boolWF;
-        LinkedHashSet<Movie> collectionForWork;
-        CollectionManager collectionManager;
+    private Long id;
+    HashSet hashSetId;
+    LinkedHashSet<Movie> collectionForWork;
+    CollectionManager collectionManager;
+
+
+    public MovieFactory(HashSet hashSetId, CollectionManager collectionManager) {
+        this.hashSetId = hashSetId;
+        this.collectionManager = collectionManager;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public LinkedHashSet<Movie> getCollectionForWork() {
+        return collectionManager.getMoviesLinkedHashSet();
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public HashSet getHashSetId() {
+        return hashSetId;
+    }
+
+    public void setHashSetId(HashSet hashSetId) {
+        this.hashSetId = hashSetId;
+    }
+
+    public void setCollectionForWork(LinkedHashSet<Movie> collectionForWork) {
+        this.collectionForWork = collectionForWork;
+    }
 
     public CollectionManager getCollectionManager() {
         return collectionManager;
@@ -24,28 +51,7 @@ public class MovieFactory {
         this.collectionManager = collectionManager;
     }
 
-    public MovieFactory(Reader reader, HashSet hashSetId, LinkedHashSet<Movie> collectionForWork, CollectionManager collectionManager) {
-            this.hashSetId = hashSetId;
-            this.reader = reader;
-            this.collectionForWork = collectionForWork;
-            this.collectionManager = collectionManager;
-
-        }
-
-        public void setLoadObject(Object loadObject){
-            this.loadObject = loadObject;
-        }
-        public Object getLoadObject(){
-            return loadObject;
-        }
-        public Long getId() {
-            return id;
-        }
-        public LinkedHashSet<Movie> getCollectionForWork() {
-        return collectionForWork;
-    }
-
-    public Movie GetMovieFromConsole(){
+    public Movie GetMovieFromConsole() {
         long id;
         String movieName;
         Coordinates coordinates;
@@ -64,26 +70,25 @@ public class MovieFactory {
         Float locationY;
         String locationName;
 
-        ReadAndCheck readAndCheck = new ReadAndCheck(reader, boolWF);
-        id = readAndCheck.autoCreatAndCheckId(hashSetId);
-        movieName = readAndCheck.readAndCheckName();
-        coordinatesX = readAndCheck.readAndCheckCordinateX();
-        coordinatesY = readAndCheck.readAndCheckCordinateY();
+        id = ReadAndCheck.autoCreatAndCheckId(hashSetId);
+        movieName = ReadAndCheck.readAndCheckName();
+        coordinatesX = ReadAndCheck.readAndCheckCoordinateX();
+        coordinatesY = ReadAndCheck.readAndCheckCoordinateY();
         coordinates = new Coordinates(coordinatesX, coordinatesY);
-        LocalDateTime creationDate = readAndCheck.autoCreatAndCheckDate();
-        oscarsCount = readAndCheck.readAndCheckOscarsCount();
-        genre = readAndCheck.readAndCheckMovieGenre();
-        mpaaRating = readAndCheck.readAndCheckMpaaRating();
-        personName = readAndCheck.readAndCheckName();
-        weight = readAndCheck.readAndCheckWeight();
-        eyeColor = readAndCheck.readAndCheckColor();
-        nationality = readAndCheck.readAndCheckCountry();
-        locationName = readAndCheck.readAndCheckName();;
-        locationX = readAndCheck.readAndCheckLocationX();
-        locationY = readAndCheck.readAndCheckLocationY();
-        location = new Location(locationX, locationY,locationName);
+        LocalDateTime creationDate = ReadAndCheck.autoCreatAndCheckDate();
+        oscarsCount = ReadAndCheck.readAndCheckOscarsCount();
+        genre = ReadAndCheck.readAndCheckMovieGenre();
+        mpaaRating = ReadAndCheck.readAndCheckMpaaRating();
+        personName = ReadAndCheck.readAndCheckName();
+        weight = ReadAndCheck.readAndCheckWeight();
+        eyeColor = ReadAndCheck.readAndCheckColor();
+        nationality = ReadAndCheck.readAndCheckCountry();
+        locationName = ReadAndCheck.readAndCheckName();
+        locationX = ReadAndCheck.readAndCheckLocationX();
+        locationY = ReadAndCheck.readAndCheckLocationY();
+        location = new Location(locationX, locationY, locationName);
         director = new Person(personName, weight, eyeColor, nationality, location);
-        Movie movie = new Movie(id, movieName, coordinates, creationDate, oscarsCount, genre, mpaaRating,director);
-    return movie;
+        return new Movie(id, movieName, coordinates, creationDate, oscarsCount, genre, mpaaRating, director);
+
     }
 }

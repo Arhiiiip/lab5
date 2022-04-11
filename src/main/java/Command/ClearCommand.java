@@ -6,8 +6,8 @@ public class ClearCommand extends CommandAbstract{
 
     MovieFactory movieFactory;
 
-    public ClearCommand(String name, String description, MovieFactory movieFactory) {
-        super(name, description);
+    public ClearCommand(String name, String description, MovieFactory movieFactory, boolean isArgument) {
+        super(name, description, isArgument);
         this.movieFactory = movieFactory;
     }
 
