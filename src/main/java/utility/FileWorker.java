@@ -23,8 +23,7 @@ public class FileWorker {
 
     public LinkedHashSet parse(String link) throws IOException, SAXException, ParserConfigurationException {
 
-        CreateFileForWork fileForWork = new CreateFileForWork();
-        File file = fileForWork.creatFile(link);
+        File file = new File(link);
 
         LinkedHashSet<Movie> collectionFromFile = new LinkedHashSet<>();
         long tempId = 0;
@@ -45,7 +44,6 @@ public class FileWorker {
         Integer tempLocationX = null;
         Float tempLocationY = null;
         String tempLocationName = null;
-
         int countErrorElement = 0;
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

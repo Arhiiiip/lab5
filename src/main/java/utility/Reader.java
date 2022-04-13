@@ -31,11 +31,7 @@ public class Reader {
             if (!scanner.hasNextLine() && line.equals("")) {
                 return "exit";
             } else return line;
-        } catch (NoSuchElementException exception) {
-            System.out.println("Farshmak");
-            return "exit";
-        } catch (IllegalStateException exception) {
-            System.out.println("SUUUKAAA");
+        } catch (NoSuchElementException | IllegalStateException exception) {
             return "exit";
         }
     }

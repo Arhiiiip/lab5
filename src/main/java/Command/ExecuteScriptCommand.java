@@ -1,7 +1,7 @@
 package Command;
 
 import utility.MovieFactory;
-import utility.ReadAndCheck;
+import utility.Validator;
 import utility.Reader;
 
 import java.io.File;
@@ -39,7 +39,7 @@ public class ExecuteScriptCommand extends CommandAbstract {
             Scanner prevScanner = Reader.scanner;
             Reader readerForFile = new Reader(scannerForFile, invoker);
             while (scannerForFile.hasNextLine()) {
-                ReadAndCheck.setReader(readerForFile);
+                Validator.setReader(readerForFile);
                 invoker.execute(readerForFile.read());
             }
             files.remove(arg);

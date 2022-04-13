@@ -9,11 +9,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 
-public class ReadAndCheck {
+public class Validator {
 
     public static Reader reader;
 
-    public ReadAndCheck(Reader reader) {
+    public Validator(Reader reader) {
         this.reader = reader;
     }
 
@@ -22,15 +22,15 @@ public class ReadAndCheck {
     }
 
     public static void setReader(Reader reader) {
-        ReadAndCheck.reader = reader;
+        Validator.reader = reader;
     }
 
-    public static String readAndCheckName() {
+    public static String validatorName() {
         System.out.print("Введите имя:");
         return reader.read();
     }
 
-    public static Integer readAndCheckCoordinateX() {
+    public static Integer validatorCoordinateX() {
         int x = 317;
         while (x > 316) {
             System.out.println("Введите координату Х, она не должна быть больше 316:");
@@ -42,7 +42,7 @@ public class ReadAndCheck {
         return x;
     }
 
-    public static Integer readAndCheckCoordinateY() {
+    public static Integer validatorCoordinateY() {
         System.out.println("Введите координату Y:");
         String y = reader.read();
         Integer y2;
@@ -51,56 +51,56 @@ public class ReadAndCheck {
             return y2;
         } catch (NumberFormatException exception) {
             System.out.println("Значение должно быть целочисленное, типа Integer");
-            return readAndCheckCoordinateY();
+            return validatorCoordinateY();
         }
     }
 
-    public static MovieGenre readAndCheckMovieGenre() {
+    public static MovieGenre validatorMovieGenre() {
         System.out.println("Введите жанр фильма(WESTERN, DRAMA, TRAGEDY, SCIENCE_FICTION):");
         String line = reader.read();
         if (MovieGenre.isIncludeElement(line)) {
             return MovieGenre.valueOf(line.toUpperCase());
         } else {
             System.out.println("Такого жанра нет");
-            return readAndCheckMovieGenre();
+            return validatorMovieGenre();
         }
     }
 
-    public static Color readAndCheckColor() {
+    public static Color validatorColor() {
         System.out.println("Введите цвет глаз(RED, GREEN, BLACK, BLUE, ORANGE)");
         String line = reader.read();
         if (Color.isIncludeElement(line)) {
             return Color.valueOf(line.toUpperCase());
         } else {
             System.out.println("Такого жанра нет");
-            return readAndCheckColor();
+            return validatorColor();
         }
     }
 
 
-    public static Country readAndCheckCountry() {
+    public static Country validatorCountry() {
         System.out.println("Введите страну:(RUSSIA, GERMANY, FRANCE)");
         String line = reader.read();
         if (Country.isIncludeElement(line)) {
             return Country.valueOf(line.toUpperCase());
         } else {
             System.out.println("Такой жанра нет");
-            return readAndCheckCountry();
+            return validatorCountry();
         }
     }
 
-    public static MpaaRating readAndCheckMpaaRating() {
+    public static MpaaRating validatorMpaaRating() {
         System.out.println("Введите MpaaRating(G, PG, PG_13, R, NC_17):");
         String line = reader.read();
         if (MpaaRating.isIncludeElement(line)) {
             return MpaaRating.valueOf(line.toUpperCase());
         } else {
             System.out.println("Такого рейтинга нет");
-            return readAndCheckMpaaRating();
+            return validatorMpaaRating();
         }
     }
 
-    public static Float readAndCheckWeight() {
+    public static Float validatorWeight() {
         try {
             System.out.println("Введите высоту:");
             String line = reader.read();
@@ -109,12 +109,12 @@ public class ReadAndCheck {
             }
         } catch (NumberFormatException exception) {
             System.out.println("Неверно введены данные. Высота не должна быть словом или быть меньше 0.");
-            return readAndCheckWeight();
+            return validatorWeight();
         }
         return null;
     }
 
-    public static Integer readAndCheckLocationX() {
+    public static Integer validatorLocationX() {
         System.out.println("Введите координату локации Х:");
         String x = reader.read();
         Integer x2 = null;
@@ -123,11 +123,11 @@ public class ReadAndCheck {
             return x2;
         } catch (NumberFormatException exception) {
             System.out.println("Значение должно быть целочисленное, типа Integer");
-            return readAndCheckLocationX();
+            return validatorLocationX();
         }
     }
 
-    public static Float readAndCheckLocationY() {
+    public static Float validatorLocationY() {
         System.out.println("Введите координату Y:");
         String y = reader.read();
         Float y2 = null;
@@ -136,12 +136,12 @@ public class ReadAndCheck {
             return y2;
         } catch (NumberFormatException exception) {
             System.out.println("Значение должно быть целочисленное, типа Integer");
-            return readAndCheckLocationY();
+            return validatorLocationY();
         }
     }
 
     public static long autoCreatAndCheckId(HashSet collection) {
-        System.out.println("Введите айди, а нет идите нахуй, айди сам вводится.");
+//        System.out.println("Введите айди, а нет идите нахуй, айди сам вводится.");
         for (long i = 0, id = 1; i < (collection.size() + 1); i++, id++) {
             if (!collection.contains(id)) {
                 collection.add(id);
@@ -158,7 +158,7 @@ public class ReadAndCheck {
         return LocalDateTime.parse(dateFormate, formatter);
     }
 
-    public static Integer readAndCheckOscarsCount() {
+    public static Integer validatorOscarsCount() {
         System.out.println("Введите количество оскаров Y:");
         String count = reader.read();
         Integer countOscars = null;
@@ -167,7 +167,7 @@ public class ReadAndCheck {
             return countOscars;
         } catch (NumberFormatException exception) {
             System.out.println("Значение должно быть целочисленное, типа Integer");
-            return readAndCheckOscarsCount();
+            return validatorOscarsCount();
         }
     }
 }

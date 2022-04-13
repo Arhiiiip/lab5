@@ -16,7 +16,7 @@ public class SaveCommand extends CommandAbstract {
     }
 
     public void execute(String arg) {
-        String link = "C:\\Users\\Asus\\Desktop\\Her\\Porno\\Lab5\\Test_1.0.xml";
+        String link = movieFactory.getCollectionManager().getLink();
         PrintWriter fileOut = null;
         try {
             fileOut = new PrintWriter(link);

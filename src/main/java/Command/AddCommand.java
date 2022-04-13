@@ -19,7 +19,7 @@ public class AddCommand extends CommandAbstract {
 
 
     /**
-     * Исполнение команды add
+     * Iсполнение команды add
      * @param arg
      */
     @Override

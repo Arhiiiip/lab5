@@ -13,10 +13,14 @@ public class AverageOfOscarsCommand extends CommandAbstract {
     }
 
     public void execute(String arg) {
-        int sum = 0;
-        for (Movie movie : movieFactory.getCollectionForWork()) {
-            sum = sum + movie.getOscarsCount();
+        try {
+            int sum = 0;
+            for (Movie movie : movieFactory.getCollectionForWork()) {
+                sum = sum + movie.getOscarsCount();
+            }
+            System.out.println(sum / movieFactory.getCollectionForWork().size());
+        }catch (ArithmeticException e){
+            System.out.println("Коллекция пустая, а ноль делить нельзя)))");
         }
-        System.out.println(sum / movieFactory.getCollectionForWork().size());
     }
 }
