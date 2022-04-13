@@ -3,7 +3,7 @@ package Command;
 import Data.Movie;
 import utility.MovieFactory;
 
-public class AddIfMaxCommand extends CommandAbstract{
+public class AddIfMaxCommand extends CommandAbstract {
 
     MovieFactory movieFactory;
 
@@ -12,7 +12,7 @@ public class AddIfMaxCommand extends CommandAbstract{
         this.movieFactory = movieFactory;
     }
 
-    public void execute(String arg){
+    public void execute(String arg) {
         Movie movieForAdd = movieFactory.GetMovieFromConsole();
         int oscarsCountFromUser = movieForAdd.getOscarsCount();
         int maxOscarsCount = 0;
@@ -20,11 +20,10 @@ public class AddIfMaxCommand extends CommandAbstract{
             if (movie.getOscarsCount() > maxOscarsCount) {
                 maxOscarsCount = movie.getOscarsCount();
             }
-        if(oscarsCountFromUser > maxOscarsCount) {
+        if (oscarsCountFromUser > maxOscarsCount) {
             movieFactory.getCollectionForWork().add(movieForAdd);
             movieFactory.getCollectionManager().setDateUpdate();
-        }
-        else{
+        } else {
             System.out.println("Таких элементов нет");
         }
     }

@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 
 public class Main {
-    //TODO ctrl d
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
         String link = args[0];
         FileWorker fileWorker = new FileWorker();
@@ -24,7 +23,7 @@ public class Main {
         Reader reader = new Reader(scanner, invoker);
         ReadAndCheck.setReader(reader);
         while (true) {
-//            Reader.readerFirst = reader;
+            System.out.println("Введите команду:");
             String commandUser = reader.read().trim();
             invoker.execute(commandUser);
         }

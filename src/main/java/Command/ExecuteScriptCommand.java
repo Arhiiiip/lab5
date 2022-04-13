@@ -35,8 +35,6 @@ public class ExecuteScriptCommand extends CommandAbstract {
         files.add(arg);
         Scanner scannerForFile;
         try {
-//            Receiver receiver = new Receiver();
-//            Invoker invoker2 = new Invoker(receiver, movieFactory);
             scannerForFile = new Scanner(new File(arg));
             Scanner prevScanner = Reader.scanner;
             Reader readerForFile = new Reader(scannerForFile, invoker);
@@ -47,7 +45,6 @@ public class ExecuteScriptCommand extends CommandAbstract {
             files.remove(arg);
             scannerForFile.close();
             Reader.setScanner(prevScanner);
-//            ReadAndCheck.setReader(Reader.readerFirst);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

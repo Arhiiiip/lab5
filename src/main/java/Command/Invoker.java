@@ -7,11 +7,11 @@ import java.util.HashSet;
 import java.util.Map;
 
 public class Invoker {
-public Map<String, CommandAbstract> commands;
+    public Map<String, CommandAbstract> commands;
 
-private Receiver receiver;
-boolean temp;
-public HashSet<String> files = new HashSet<>();
+    private Receiver receiver;
+    boolean temp;
+    public HashSet<String> files = new HashSet<>();
 
     public Invoker(Receiver receiver, MovieFactory movieFactory) {
         commands = new HashMap<>();
@@ -38,26 +38,26 @@ public HashSet<String> files = new HashSet<>();
         commands.put("execute_script", new ExecuteScriptCommand("execute_script link_to_file", "Cчитать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме", movieFactory, (HashMap<String, CommandAbstract>) commands, this, files, true));
     }
 
-    public void execute(String command){
-            command = command.replaceAll("\\s+", " ");
-            String[] parts = command.split(" ");
-            if (commands.containsKey(parts[0])) {
+    public void execute(String command) {
+        command = command.replaceAll("\\s+", " ");
+        String[] parts = command.split(" ");
+        if (commands.containsKey(parts[0])) {
             if (parts.length == 2) {
-                    if(commands.get(parts[0]).isArgument) {
-                        receiver.execute(commands.get(parts[0]), parts[1]);
-                    } else{
-                        System.out.println("Команда не требует аргумента, смотреть help");
-                    }
+                if (commands.get(parts[0]).isArgument) {
+                    receiver.execute(commands.get(parts[0]), parts[1]);
+                } else {
+                    System.out.println("Команда не требует аргумента, смотреть help");
+                }
             } else {
                 if (!commands.get(parts[0]).isArgument) {
                     receiver.execute(commands.get(command), "");
-                } else{
+                } else {
                     System.out.println("Команде требуется аргумент, смотреть help");
                 }
             }
-        } else{
-                System.out.println("Такой команды нет");
-            }
+        } else {
+            System.out.println("Такой команды нет");
+        }
     }
 }
 

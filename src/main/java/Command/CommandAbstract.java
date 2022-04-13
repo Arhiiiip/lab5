@@ -1,6 +1,6 @@
 package Command;
 
-public abstract class CommandAbstract  {
+public abstract class CommandAbstract {
 
     final String name;
     final String description;
@@ -12,7 +12,7 @@ public abstract class CommandAbstract  {
         this.isArgument = isArgument;
     }
 
-    public void execute(String arg){
+    public void execute(String arg) {
     }
 
     @Override

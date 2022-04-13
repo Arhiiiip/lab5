@@ -13,7 +13,7 @@ public enum MovieGenre {
         return false;
     }
 
-    public boolean equals(String arg){
+    public boolean equals(String arg) {
         MovieGenre genre = this;
         String genreForEquals = String.valueOf(genre);
         return (genreForEquals.equals(arg));

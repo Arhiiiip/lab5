@@ -6,7 +6,7 @@ import utility.MovieFactory;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-public class SaveCommand extends CommandAbstract{
+public class SaveCommand extends CommandAbstract {
 
     MovieFactory movieFactory;
 
@@ -15,7 +15,7 @@ public class SaveCommand extends CommandAbstract{
         this.movieFactory = movieFactory;
     }
 
-    public void execute(String arg){
+    public void execute(String arg) {
         String link = "C:\\Users\\Asus\\Desktop\\Her\\Porno\\Lab5\\Test_1.0.xml";
         PrintWriter fileOut = null;
         try {
@@ -24,11 +24,11 @@ public class SaveCommand extends CommandAbstract{
             e.printStackTrace();
         }
         fileOut.println("<movies>");
-        for(Movie movie : movieFactory.getCollectionForWork()){
+        for (Movie movie : movieFactory.getCollectionForWork()) {
             fileOut.println("<movie>");
             fileOut.println("<id>" + movie.getId() + "</id>");
             fileOut.println("<name>" + movie.getName() + "</name>");
-            fileOut.println("<coordinates>" + "\n" + "<coordinate_x>" + movie.getCoordinates().getX() + "</coordinate_x>" + "\n" + "<coordinate_y>" + movie.getCoordinates().getY() + "</coordinate_y>" +"\n" + "</coordinates>");
+            fileOut.println("<coordinates>" + "\n" + "<coordinate_x>" + movie.getCoordinates().getX() + "</coordinate_x>" + "\n" + "<coordinate_y>" + movie.getCoordinates().getY() + "</coordinate_y>" + "\n" + "</coordinates>");
             fileOut.println("<creationDate>" + movie.getCreationDate() + "</creationDate>");
             fileOut.println("<oscarsCount>" + movie.getOscarsCount() + "</oscarsCount>");
             fileOut.println("<genre>" + movie.getGenre() + "</genre>");

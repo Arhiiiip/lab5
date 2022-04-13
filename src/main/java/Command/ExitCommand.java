@@ -2,7 +2,7 @@ package Command;
 
 import utility.MovieFactory;
 
-public class ExitCommand extends CommandAbstract{
+public class ExitCommand extends CommandAbstract {
 
     MovieFactory movieFactory;
     boolean temp;
@@ -13,7 +13,6 @@ public class ExitCommand extends CommandAbstract{
     }
 
     public void execute(String arg) {
-//        Reader.scanner.close();
         System.exit(0);
     }
 }

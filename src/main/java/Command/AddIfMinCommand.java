@@ -12,7 +12,7 @@ public class AddIfMinCommand extends CommandAbstract {
         this.movieFactory = movieFactory;
     }
 
-    public void execute(String arg){
+    public void execute(String arg) {
         Movie movieForAdd = movieFactory.GetMovieFromConsole();
         int oscarsCountFromUser = movieForAdd.getOscarsCount();
         int minOscarsCount = (int) Math.pow(2, 32);

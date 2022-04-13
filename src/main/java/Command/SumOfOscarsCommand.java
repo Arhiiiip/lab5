@@ -14,7 +14,7 @@ public class SumOfOscarsCommand extends CommandAbstract {
 
     public void execute(String arg) {
         int sum = 0;
-        for (Movie movie : movieFactory.getCollectionForWork()){
+        for (Movie movie : movieFactory.getCollectionForWork()) {
             sum = sum + movie.getOscarsCount();
         }
         System.out.println(sum);

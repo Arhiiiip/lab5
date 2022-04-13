@@ -12,7 +12,7 @@ public enum Country {
         return false;
     }
 
-    public boolean equals(String arg){
+    public boolean equals(String arg) {
         Country country = this;
         String genreForEquals = String.valueOf(country);
         return (genreForEquals.equals(arg));

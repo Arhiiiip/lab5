@@ -19,7 +19,7 @@ public class Person {
         this.location = location;
     }
 
-    public Person(){
+    public Person() {
         name = null;
         weight = null;
         eyeColor = null;

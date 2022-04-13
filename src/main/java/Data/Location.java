@@ -7,13 +7,13 @@ public class Location {
     private Float y; //Поле не может быть null
     private String name; //Длина строки не должна быть больше 825, Поле не может быть null
 
-    public Location(Integer x, Float y, String name){
+    public Location(Integer x, Float y, String name) {
         this.x = x;
         this.y = y;
         this.name = name;
     }
 
-    public Location(){
+    public Location() {
         y = null;
         x = null;
         name = null;
@@ -31,15 +31,15 @@ public class Location {
         this.name = name;
     }
 
-    public Integer getX(){
+    public Integer getX() {
         return x;
     }
 
-    public Float getY(){
+    public Float getY() {
         return y;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 

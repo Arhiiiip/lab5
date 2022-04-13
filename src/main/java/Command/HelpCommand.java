@@ -4,7 +4,7 @@ import utility.MovieFactory;
 
 import java.util.Map;
 
-public class HelpCommand extends CommandAbstract{
+public class HelpCommand extends CommandAbstract {
     private Map<String, CommandAbstract> commands;
 
     MovieFactory movieFactory;

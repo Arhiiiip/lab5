@@ -13,7 +13,7 @@ public class ShowCommand extends CommandAbstract {
     }
 
     public void execute(String arg) {
-        for (Movie movie : movieFactory.getCollectionForWork()){
+        for (Movie movie : movieFactory.getCollectionForWork()) {
             System.out.println(movie.toString());
         }
     }

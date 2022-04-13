@@ -1,13 +1,12 @@
 package utility;
 
 import Data.Movie;
-import utility.Interfaces.CollectionManagerInterface;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashSet;
 
-public class CollectionManager implements CollectionManagerInterface {
+public class CollectionManager {
 
     public LinkedHashSet<Movie> moviesLinkedHashSet;
     public LinkedHashSet<Movie> savedCollection = new LinkedHashSet<>();
@@ -31,7 +30,7 @@ public class CollectionManager implements CollectionManagerInterface {
         this.moviesLinkedHashSet = moviesLinkedHashSet;
     }
 
-    public void setSavedCollection(LinkedHashSet<Movie> collection){
+    public void setSavedCollection(LinkedHashSet<Movie> collection) {
         savedCollection = collection;
     }
 
@@ -54,23 +53,4 @@ public class CollectionManager implements CollectionManagerInterface {
     public void setDateUpdate() {
         this.dateUpdate = LocalDateTime.now();
     }
-
-//    public int getCountChange() {
-//        collectionForComparison.addAll(moviesLinkedHashSet);
-//        LinkedHashSet<Movie> collectionForRemove = new LinkedHashSet<>();
-//        for (Movie movieSaved : savedCollection){
-//            for (Movie movie : collectionForComparison){
-//                if(movieSaved.equals(movie)){
-//                    collectionForRemove.add(movie);
-//                }
-//            }
-//        }
-//        System.out.println(collectionForRemove);
-//        System.out.println(collectionForComparison);
-//        System.out.println(savedCollection);
-//        savedCollection.removeAll(collectionForRemove);
-//        collectionForComparison.removeAll(collectionForRemove);
-//        countChange = savedCollection.size() + collectionForComparison.size();
-//        return countChange;
-//    }
 }

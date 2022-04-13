@@ -2,7 +2,7 @@ package Command;
 
 import utility.MovieFactory;
 
-public class ClearCommand extends CommandAbstract{
+public class ClearCommand extends CommandAbstract {
 
     MovieFactory movieFactory;
 
@@ -15,7 +15,7 @@ public class ClearCommand extends CommandAbstract{
         if (!(movieFactory.getCollectionForWork().size() == 0)) {
             movieFactory.getCollectionForWork().clear();
             movieFactory.getCollectionManager().setDateUpdate();
-        }else{
+        } else {
             System.out.println("Коллекция уже пустая!");
         }
     }

@@ -26,7 +26,7 @@ public class Movie {
         this.director = director;
     }
 
-    public Movie(long anId){
+    public Movie(long anId) {
         this.id = anId;
     }
 

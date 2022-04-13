@@ -2,7 +2,7 @@ package Command;
 
 import utility.MovieFactory;
 
-public class InfoCommand extends CommandAbstract{
+public class InfoCommand extends CommandAbstract {
 
     MovieFactory movieFactory;
 
@@ -13,9 +13,9 @@ public class InfoCommand extends CommandAbstract{
 
     public void execute(String arg) {
         System.out.println("Iнформация о коллекции:" + "\n" +
-        movieFactory.getCollectionForWork().getClass() + "\n" +
-        "Колличество эллементов: " + movieFactory.getCollectionForWork().size() + "\n" +
-        "Дата и время инициализации: " + movieFactory.getCollectionManager().getDateInitialization() + "\n" +
-        "Дата и время последнего обновления: " + movieFactory.getCollectionManager().getDateUpdate());
+                movieFactory.getCollectionForWork().getClass() + "\n" +
+                "Колличество эллементов: " + movieFactory.getCollectionForWork().size() + "\n" +
+                "Дата и время инициализации: " + movieFactory.getCollectionManager().getDateInitialization() + "\n" +
+                "Дата и время последнего обновления: " + movieFactory.getCollectionManager().getDateUpdate());
     }
 }

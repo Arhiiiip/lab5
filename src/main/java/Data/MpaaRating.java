@@ -14,7 +14,7 @@ public enum MpaaRating {
         return false;
     }
 
-    public boolean equals(String arg){
+    public boolean equals(String arg) {
         MpaaRating mpaaRating = this;
         String genreForEquals = String.valueOf(mpaaRating);
         return (genreForEquals.equals(arg));

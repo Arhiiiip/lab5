@@ -62,7 +62,7 @@ public class FileWorker {
                 try {
                     tempId = Long.parseLong(element.getElementsByTagName("id").item(0).getTextContent());
                 } catch (NumberFormatException exeption) {
-                    countErrorElement+=1;
+                    countErrorElement += 1;
                     continue;
                 }
 
@@ -74,14 +74,14 @@ public class FileWorker {
                 try {
                     tempCoordinatesX = Integer.parseInt(elemnetCoordinates.getElementsByTagName("coordinate_x").item(0).getTextContent());
                 } catch (NumberFormatException exeption) {
-                    countErrorElement+=1;
+                    countErrorElement += 1;
                     continue;
                 }
 
                 try {
                     tempCoordinatesY = Integer.parseInt(elemnetCoordinates.getElementsByTagName("coordinate_y").item(0).getTextContent());
                 } catch (NumberFormatException exeption) {
-                    countErrorElement+=1;
+                    countErrorElement += 1;
                     continue;
                 }
 
@@ -90,28 +90,28 @@ public class FileWorker {
                     LocalDateTime date = LocalDateTime.parse(element.getElementsByTagName("creationDate").item(0).getTextContent(), formatter);
                     tempCreationDate = date;
                 } catch (DateTimeParseException exception) {
-                    countErrorElement+=1;
+                    countErrorElement += 1;
                     continue;
                 }
 
                 try {
                     tempOscarsCount = Integer.parseInt(element.getElementsByTagName("oscarsCount").item(0).getTextContent());
                 } catch (NumberFormatException exeption) {
-                    countErrorElement+=1;
+                    countErrorElement += 1;
                     continue;
                 }
 
                 try {
                     tempGenre = MovieGenre.valueOf(element.getElementsByTagName("genre").item(0).getTextContent());
                 } catch (Exception exception) {
-                    countErrorElement+=1;
+                    countErrorElement += 1;
                     continue;
                 }
 
                 try {
                     tempMpaaRating = MpaaRating.valueOf(element.getElementsByTagName("mpaaRating").item(0).getTextContent());
                 } catch (Exception exception) {
-                    countErrorElement+=1;
+                    countErrorElement += 1;
                     continue;
                 }
 
@@ -123,21 +123,21 @@ public class FileWorker {
                 try {
                     tempWeight = Float.parseFloat(element.getElementsByTagName("weight").item(0).getTextContent());
                 } catch (NumberFormatException exeption) {
-                    countErrorElement+=1;
+                    countErrorElement += 1;
                     continue;
                 }
 
                 try {
                     tempEyeColor = Color.valueOf(element.getElementsByTagName("eyecolor").item(0).getTextContent());
                 } catch (Exception exception) {
-                    countErrorElement+=1;
+                    countErrorElement += 1;
                     continue;
                 }
 
                 try {
                     tempNationality = Country.valueOf(element.getElementsByTagName("nationality").item(0).getTextContent());
                 } catch (Exception exception) {
-                    countErrorElement+=1;
+                    countErrorElement += 1;
                     continue;
                 }
 
@@ -149,14 +149,14 @@ public class FileWorker {
                 try {
                     tempLocationX = Integer.parseInt(elementLocation.getElementsByTagName("loc_x").item(0).getTextContent());
                 } catch (NumberFormatException exeption) {
-                    countErrorElement+=1;
+                    countErrorElement += 1;
                     continue;
                 }
 
                 try {
                     tempLocationY = Float.parseFloat(elementLocation.getElementsByTagName("loc_y").item(0).getTextContent());
                 } catch (NumberFormatException exeption) {
-                    countErrorElement+=1;
+                    countErrorElement += 1;
                     continue;
                 }
 
@@ -167,13 +167,13 @@ public class FileWorker {
                 hashSetId.add(tempId);
             }
         }
-        if (countErrorElement != 0){
+        if (countErrorElement != 0) {
             System.out.println("Количество проблемных элементов: " + countErrorElement);
         }
-//        System.out.println(collectionFromFile);
-    return collectionFromFile;
+        return collectionFromFile;
     }
-    public HashSet takeHashSetId(){
+
+    public HashSet takeHashSetId() {
         return hashSetId;
     }
 }

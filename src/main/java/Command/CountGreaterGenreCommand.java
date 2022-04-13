@@ -19,7 +19,7 @@ public class CountGreaterGenreCommand extends CommandAbstract {
         long countTragedy = 0;
         long countScienceFiction = 0;
         for (Movie movie : movieFactory.getCollectionForWork()) {
-            switch(movie.getGenre()){
+            switch (movie.getGenre()) {
                 case DRAMA: {
                     countDrama += 1;
                     break;
@@ -41,7 +41,7 @@ public class CountGreaterGenreCommand extends CommandAbstract {
 
         long countUserGenre = 0;
         MovieGenre argUser = MovieGenre.valueOf(arg);
-        switch (argUser){
+        switch (argUser) {
             case DRAMA: {
                 countUserGenre = countDrama;
                 break;
@@ -62,7 +62,7 @@ public class CountGreaterGenreCommand extends CommandAbstract {
         long[] arr = {countDrama, countTragedy, countWestern, countScienceFiction};
         long countMore = 0;
         for (long x : arr) {
-            if(x > countUserGenre){
+            if (x > countUserGenre) {
                 countMore += x;
             }
         }

@@ -28,14 +28,14 @@ public class Reader {
                     System.out.println("Вы ничего не ввели");
                 }
             }
-            if (!scanner.hasNextLine() && line.equals("")){
+            if (!scanner.hasNextLine() && line.equals("")) {
                 return "exit";
             } else return line;
-        }catch (NoSuchElementException exception){
-            System.out.println("Фаршмак");
+        } catch (NoSuchElementException exception) {
+            System.out.println("Farshmak");
             return "exit";
-        }catch (IllegalStateException exception){
-            System.out.println("CYYYYKAAAAA");
+        } catch (IllegalStateException exception) {
+            System.out.println("SUUUKAAA");
             return "exit";
         }
     }

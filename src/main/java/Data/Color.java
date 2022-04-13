@@ -14,7 +14,7 @@ public enum Color {
         return false;
     }
 
-    public boolean equals(String arg){
+    public boolean equals(String arg) {
         Color color = this;
         String genreForEquals = String.valueOf(color);
         return (genreForEquals.equals(arg));

@@ -5,7 +5,7 @@ public class Coordinates {
     private int x; //Максимальное значение поля: 316
     private Integer y; //Поле не может быть null
 
-    public Coordinates(int x, Integer y){
+    public Coordinates(int x, Integer y) {
         this.x = x;
         this.y = y;
     }
@@ -19,10 +19,11 @@ public class Coordinates {
     }
 
 
-    public int getX(){
+    public int getX() {
         return x;
     }
-    public Integer getY(){
+
+    public Integer getY() {
         return y;
     }
 
