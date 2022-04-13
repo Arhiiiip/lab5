@@ -1,6 +1,10 @@
 package Data;
 
+/**
+ * Какие цвета могут быть
+ */
 public enum Color {
+    /** Зелёный */
     GREEN,
     RED,
     BLACK,

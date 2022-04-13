@@ -3,6 +3,11 @@ package Command;
 import Data.Movie;
 import utility.MovieFactory;
 
+/**
+ * Класс команды add
+ * Которая добавляет элемент в коллекцию
+ */
+
 public class AddCommand extends CommandAbstract {
 
     MovieFactory movieFactory;
@@ -12,6 +17,11 @@ public class AddCommand extends CommandAbstract {
         this.movieFactory = movieFactory;
     }
 
+
+    /**
+     * Исполнение команды add
+     * @param arg
+     */
     @Override
     public void execute(String arg) {
         Movie movie = movieFactory.GetMovieFromConsole();

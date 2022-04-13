@@ -9,6 +9,11 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Scanner;
 
+/**
+ * Lab_5
+ * @author Arhiiiip
+ * @version 1.0
+ */
 
 public class Main {
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {

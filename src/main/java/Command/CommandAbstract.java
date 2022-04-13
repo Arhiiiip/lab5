@@ -1,9 +1,16 @@
 package Command;
 
+/**
+ * Абстрактный класс команды
+ */
+
 public abstract class CommandAbstract {
 
+    /** Переменная команды name - означающая имя */
     final String name;
+    /** Переменная команды description - означающая описание */
     final String description;
+    /** Свойство показывающее нужен ли команде аргумент */
     final boolean isArgument;
 
     public CommandAbstract(String name, String description, boolean isArgument) {

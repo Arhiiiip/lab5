@@ -1,7 +1,12 @@
 package Command;
 
+/**
+ * Класс Receiver запускающий команды
+ */
+
 public class Receiver {
 
+    /** Конструктор ресивера */
     public Receiver() {
     }
 

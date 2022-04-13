@@ -6,11 +6,15 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
+/**
+ * Класс Invoker, принимающий на вход команду,
+ * затем передающий её в Receiver
+ */
+
 public class Invoker {
     public Map<String, CommandAbstract> commands;
 
     private Receiver receiver;
-    boolean temp;
     public HashSet<String> files = new HashSet<>();
 
     public Invoker(Receiver receiver, MovieFactory movieFactory) {
